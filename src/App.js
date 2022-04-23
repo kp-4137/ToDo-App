@@ -32,10 +32,16 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
 
+  const addTodo = (todo) => {
+    const id = todos.length + 1;
+    todo = {id, ...todo};
+    setTodos([...todos,todo]);
+  }
+
   return (
     <div className="App">
       <Header />
-      <Form />
+      <Form onAdd={addTodo}/>
       <TodoList todos={todos} onDeleteTodo={deleteTodo}/>
     </div>
   );
