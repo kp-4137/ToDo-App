@@ -1,6 +1,8 @@
-const DeleteButton = () => {
+const DeleteButton = ({id, onClick}) => {
     return(
-        <button className="delete-button" style={{color:"white", backgroundColor:"red", border:"none"}}>
+        <button className="delete-button"
+                onClick={() => onClick(id)}
+                style={{color:"white", backgroundColor:"red", border:"none"}}>
             Delete
         </button>
     );

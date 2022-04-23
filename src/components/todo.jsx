@@ -1,12 +1,12 @@
 import DeleteButton from "./delete-button";
 
-const Todo = ({title, description, deadline}) => {
+const Todo = ({todo, onDelete}) => {
     return(
         <li className="todo">
-            <h3 className="todo-title">{title}</h3>
-            <p className="todo-description">{description}</p>
-            <p className="todo-deadline">Due By:{deadline}</p>
-            <DeleteButton />
+            <h3 className="todo-title">{todo.title}</h3>
+            <p className="todo-description">{todo.description}</p>
+            <p className="todo-deadline">Due By:{todo.deadline}</p>
+            <DeleteButton id={todo.id} onClick={onDelete}/>
         </li>
     );
 }

@@ -25,10 +25,14 @@ const TodoList = () => {
         ]
     );
 
+    const deleteTodo = (id) => {
+        setTodos(todos.filter((todo) => todo.id !== id));
+    }
+
     return(
         <div className="todo-container">
             <ul className="todo-list">
-                {todos.map((todo) => (<Todo key={todo.id} title={todo.title} description={todo.description} deadline={todo.deadline}/>)
+                {todos.map((todo) => (<Todo key={todo.id} todo={todo} onDelete={deleteTodo}/>)
                 )}
             </ul>
         </div>
