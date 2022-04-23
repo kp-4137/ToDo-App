@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header remainingTasks={todos.length}/>
       <Form onAdd={addTodo}/>
       <TodoList todos={todos} onDeleteTodo={deleteTodo}/>
     </div>
