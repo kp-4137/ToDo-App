@@ -9,6 +9,9 @@ const Form = ({onAdd}) => {
         e.preventDefault();
         const todo = {title, description, deadline};
         onAdd(todo);
+        setTitle('');
+        setDescription('');
+        setDeadline('');
     }
 
     return(

@@ -33,8 +33,9 @@ function App() {
   }
 
   const addTodo = (todo) => {
-    const id = todos.length + 1;
+    const id = todos.length ? todos[todos.length-1].id + 1 : 1;
     todo = {id, ...todo};
+    console.log(todo);
     setTodos([...todos,todo]);
   }
 
