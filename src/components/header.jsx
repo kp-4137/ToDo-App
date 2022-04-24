@@ -1,16 +1,15 @@
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { TodoContext } from '../contexts/todoContext';
 
-const Header = ({remainingTasks}) => {
+const Header = () => {
+    const [todos, setTodos] = useContext(TodoContext);
+
     return(
         <header className="App-header">
             <h1>Kishan's ToDo App</h1>
-            <h3>Remaining Tasks: {remainingTasks}</h3>
+            <h3>Remaining Tasks: {todos.length}</h3>
         </header>
     );
-}
-
-Header.propTypes = {
-    remainingTasks: PropTypes.number.isRequired
 }
 
 export default Header;

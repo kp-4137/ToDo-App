@@ -1,15 +1,23 @@
-import { useState } from "react";
-import PropTypes from 'prop-types';
+import { useState, useContext } from "react";
+import { TodoContext } from '../contexts/todoContext';
 
-const Form = ({onAdd}) => {
+const Form = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [deadline, setDeadline] = useState('');
 
+    const [todos, setTodos] = useContext(TodoContext);
+
+    const addTodo = (todo) => {
+        const id = todos.length ? todos[todos.length-1].id + 1 : 1;
+        todo = {id, ...todo};
+        setTodos([...todos,todo]);
+    }
+
     const createTodo = (e) => {
         e.preventDefault();
         const todo = {title, description, deadline};
-        onAdd(todo);
+        addTodo(todo);
         setTitle('');
         setDescription('');
         setDeadline('');
@@ -43,19 +51,8 @@ const Form = ({onAdd}) => {
             <button className="todo-button" type="submit" style={{color:"white", backgroundColor:"green", border:"none"}}>
                 Add
             </button>
-            <div className="select">
-                <select name="todos" className="filter-todo">
-                    <option value="all">All</option>
-                    <option value="completed">Completed</option>
-                    <option value="incomplete">Incomplete</option>
-                </select>
-            </div>
         </form>
     );
-}
-
-Form.propTypes = {
-    onAdd: PropTypes.func
 }
 
 export default Form;
