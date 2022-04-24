@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
 const Form = ({onAdd}) => {
     const [title, setTitle] = useState('');
@@ -51,6 +52,10 @@ const Form = ({onAdd}) => {
             </div>
         </form>
     );
+}
+
+Form.propTypes = {
+    onAdd: PropTypes.func
 }
 
 export default Form;

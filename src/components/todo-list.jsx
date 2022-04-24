@@ -1,4 +1,5 @@
 import Todo from "./todo";
+import PropTypes from 'prop-types';
 
 const TodoList = ({todos, onDeleteTodo}) => {
     return(
@@ -9,6 +10,11 @@ const TodoList = ({todos, onDeleteTodo}) => {
             </ul>
         </div>
     );
+}
+
+TodoList.propTypes = {
+    todos: PropTypes.array,
+    onDeleteTodo: PropTypes.func
 }
 
 export default TodoList;

@@ -1,4 +1,5 @@
 import DeleteButton from "./delete-button";
+import PropTypes from 'prop-types';
 
 const Todo = ({todo, onDelete}) => {
     return(
@@ -11,10 +12,9 @@ const Todo = ({todo, onDelete}) => {
     );
 }
 
-Todo.defaultProps = {
-    title: 'Some Work',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque facere consequuntur incidunt aperiam delectus. Nostrum amet consequuntur placeat inventore atque!',
-    deadline: '01/01/2022'
+Todo.propTypes = {
+    todo: PropTypes.object,
+    onDelete: PropTypes.func
 }
 
 export default Todo;
