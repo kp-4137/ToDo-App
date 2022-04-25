@@ -6,17 +6,12 @@ const Form = () => {
     const [description, setDescription] = useState('');
     const [deadline, setDeadline] = useState('');
 
-    const [todos, setTodos] = useContext(TodoContext);
-
-    const addTodo = (todo) => {
-        const id = todos.length ? todos[todos.length-1].id + 1 : 1;
-        todo = {id, ...todo};
-        setTodos([...todos,todo]);
-    }
+    const {todos, addTodo} = useContext(TodoContext);
 
     const createTodo = (e) => {
         e.preventDefault();
-        const todo = {title, description, deadline};
+        const id = todos.length ? todos[todos.length-1].id + 1 : 1;
+        const todo = {id, title, description, deadline};
         addTodo(todo);
         setTitle('');
         setDescription('');

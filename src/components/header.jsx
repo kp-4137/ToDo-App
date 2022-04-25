@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { TodoContext } from '../contexts/todoContext';
 
 const Header = () => {
-    const [todos, setTodos] = useContext(TodoContext);
+    const {todos} = useContext(TodoContext);
 
     return(
         <header className="App-header">

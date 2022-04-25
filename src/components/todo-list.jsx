@@ -3,11 +3,7 @@ import { useContext } from 'react';
 import { TodoContext } from '../contexts/todoContext';
 
 const TodoList = () => {
-    const [todos, setTodos] = useContext(TodoContext);
-
-    const deleteTodo = (id) => {
-        setTodos(todos.filter((todo) => todo.id !== id));
-      }
+    const {todos, deleteTodo} = useContext(TodoContext);
 
     return(
         <div className="todo-container">
